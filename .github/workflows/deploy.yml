@@ -8,6 +8,7 @@ on:
       - 'docker-compose.yml'
       - 'nginx/**'
       - 'deploy.sh'
+      - 'reverse-proxy/**'
       - '.github/workflows/deploy.yml'
 
 jobs:
@@ -22,6 +23,8 @@ jobs:
         run: |
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 700 ~/.ssh
+          printf '%s' "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H "$SSH_HOST" >> ~/.ssh/known_hosts
         env:
