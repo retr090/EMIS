@@ -33,4 +33,4 @@ jobs:
 
       - name: Run deploy script on VM01
         run: |
-          ssh -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 'cd /home/ubuntu/EMIS/reverse-proxy && ./deploy.sh'
+          ssh -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 'cd /opt/EMIS/reverse-proxy && ./deploy.sh'
